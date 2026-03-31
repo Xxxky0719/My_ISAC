@@ -57,15 +57,15 @@ namespace ImageSearchAndCopy
             try
             {
                 var assembly = Assembly.GetExecutingAssembly();
-                var version = assembly.GetName().Version?.ToString() ?? "1.0.0";
+                var version = assembly.GetName().Version?.ToString() ?? "1.1.0";
                 var company = assembly.GetCustomAttribute<AssemblyCompanyAttribute>()?.Company ?? "Align";
-                var copyright = assembly.GetCustomAttribute<AssemblyCopyrightAttribute>()?.Copyright ?? "Copyright © 2025 Automation Michael Xiang";
+                var copyright = assembly.GetCustomAttribute<AssemblyCopyrightAttribute>()?.Copyright ?? "Copyright © 2026 Automation Michael Xiang";
 
                 toolStripStatusLabel.Text = $"{company} | {copyright} | v{version}";
             }
             catch
             {
-                toolStripStatusLabel.Text = "Align | Copyright © 2025 Automation Michael Xiang | v1.0.0";
+                toolStripStatusLabel.Text = "Align | Copyright © 2026 Automation Michael Xiang | v1.1.0";
             }
         }
 
