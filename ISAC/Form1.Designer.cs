@@ -86,9 +86,9 @@ namespace ImageSearchAndCopy
             lblCsvFile = new Label();
             txtBatchInput = new TextBox();
             groupBoxOperationMode = new GroupBox();
-            radioSingleMode = new RadioButton();
-            radioBatchMode = new RadioButton();
             radioMultiMode = new RadioButton();
+            radioBatchMode = new RadioButton();
+            radioSingleMode = new RadioButton();
             statusStrip.SuspendLayout();
             groupBoxLog.SuspendLayout();
             groupBoxOperationMode.SuspendLayout();
@@ -213,21 +213,10 @@ namespace ImageSearchAndCopy
             btnCancel.Text = "取消";
             btnCancel.Click += btnCancel_Click;
             // 
-            // groupBoxLog
-            // 
-            groupBoxLog.Controls.Add(listBoxLog);
-            groupBoxLog.Controls.Add(lblLogInfo);
-            groupBoxLog.Location = new Point(20, 235);
-            groupBoxLog.Name = "groupBoxLog";
-            groupBoxLog.Size = new Size(460, 170);
-            groupBoxLog.TabIndex = 16;
-            groupBoxLog.TabStop = false;
-            groupBoxLog.Text = "复制日志";
-            // 
             // statusStrip
             // 
             statusStrip.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel });
-            statusStrip.Location = new Point(0, 548);
+            statusStrip.Location = new Point(0, 523);
             statusStrip.Name = "statusStrip";
             statusStrip.Size = new Size(500, 22);
             statusStrip.SizingGrip = false;
@@ -260,6 +249,7 @@ namespace ImageSearchAndCopy
             listBoxLog.Name = "listBoxLog";
             listBoxLog.Size = new Size(440, 89);
             listBoxLog.TabIndex = 0;
+            listBoxLog.SelectedIndexChanged += listBoxLog_SelectedIndexChanged;
             // 
             // lblLogInfo
             // 
@@ -286,15 +276,15 @@ namespace ImageSearchAndCopy
             btnBrowseCsv.Size = new Size(75, 28);
             btnBrowseCsv.TabIndex = 19;
             btnBrowseCsv.Text = "浏览";
-            btnBrowseCsv.Click += btnBrowseCsv_Click;
             btnBrowseCsv.Visible = false;
+            btnBrowseCsv.Click += btnBrowseCsv_Click;
             // 
             // lblCsvFile
             // 
             lblCsvFile.AutoSize = true;
             lblCsvFile.Location = new Point(20, 79);
             lblCsvFile.Name = "lblCsvFile";
-            lblCsvFile.Size = new Size(59, 17);
+            lblCsvFile.Size = new Size(58, 17);
             lblCsvFile.TabIndex = 20;
             lblCsvFile.Text = "CSV文件:";
             lblCsvFile.Visible = false;
@@ -321,6 +311,28 @@ namespace ImageSearchAndCopy
             groupBoxOperationMode.TabStop = false;
             groupBoxOperationMode.Text = "操作方式";
             // 
+            // radioMultiMode
+            // 
+            radioMultiMode.AutoSize = true;
+            radioMultiMode.Location = new Point(280, 20);
+            radioMultiMode.Name = "radioMultiMode";
+            radioMultiMode.Size = new Size(98, 21);
+            radioMultiMode.TabIndex = 2;
+            radioMultiMode.Text = "多行输入模式";
+            radioMultiMode.UseVisualStyleBackColor = true;
+            radioMultiMode.CheckedChanged += OperationModeChanged;
+            // 
+            // radioBatchMode
+            // 
+            radioBatchMode.AutoSize = true;
+            radioBatchMode.Location = new Point(150, 20);
+            radioBatchMode.Name = "radioBatchMode";
+            radioBatchMode.Size = new Size(97, 21);
+            radioBatchMode.TabIndex = 1;
+            radioBatchMode.Text = "CSV导入模式";
+            radioBatchMode.UseVisualStyleBackColor = true;
+            radioBatchMode.CheckedChanged += OperationModeChanged;
+            // 
             // radioSingleMode
             // 
             radioSingleMode.AutoSize = true;
@@ -333,28 +345,6 @@ namespace ImageSearchAndCopy
             radioSingleMode.Text = "单次处理模式";
             radioSingleMode.UseVisualStyleBackColor = true;
             radioSingleMode.CheckedChanged += OperationModeChanged;
-            // 
-            // radioBatchMode
-            // 
-            radioBatchMode.AutoSize = true;
-            radioBatchMode.Location = new Point(150, 20);
-            radioBatchMode.Name = "radioBatchMode";
-            radioBatchMode.Size = new Size(98, 21);
-            radioBatchMode.TabIndex = 1;
-            radioBatchMode.Text = "CSV导入模式";
-            radioBatchMode.UseVisualStyleBackColor = true;
-            radioBatchMode.CheckedChanged += OperationModeChanged;
-            // 
-            // radioMultiMode
-            // 
-            radioMultiMode.AutoSize = true;
-            radioMultiMode.Location = new Point(280, 20);
-            radioMultiMode.Name = "radioMultiMode";
-            radioMultiMode.Size = new Size(98, 21);
-            radioMultiMode.TabIndex = 2;
-            radioMultiMode.Text = "多行输入模式";
-            radioMultiMode.UseVisualStyleBackColor = true;
-            radioMultiMode.CheckedChanged += OperationModeChanged;
             // 
             // Form1
             // 
@@ -386,6 +376,7 @@ namespace ImageSearchAndCopy
             MaximizeBox = false;
             Name = "Form1";
             Text = "PIDV图片搜索复制工具";
+            Load += Form1_Load;
             statusStrip.ResumeLayout(false);
             statusStrip.PerformLayout();
             groupBoxLog.ResumeLayout(false);

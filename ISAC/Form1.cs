@@ -54,19 +54,24 @@ namespace ImageSearchAndCopy
         // 添加缺失的方法
         private void InitializeStatusBarInfo()
         {
-            try
-            {
-                var assembly = Assembly.GetExecutingAssembly();
-                var version = assembly.GetName().Version?.ToString() ?? "1.1.0";
-                var company = assembly.GetCustomAttribute<AssemblyCompanyAttribute>()?.Company ?? "Align";
-                var copyright = assembly.GetCustomAttribute<AssemblyCopyrightAttribute>()?.Copyright ?? "Copyright © 2026 Automation Michael Xiang";
+            //try
+            //{
+            //    var assembly = Assembly.GetExecutingAssembly();
+            //    var version = assembly.GetName().Version?.ToString() ?? "1.1.0";
+            //    var company = assembly.GetCustomAttribute<AssemblyCompanyAttribute>()?.Company ?? "Align";
+            //    var copyright = assembly.GetCustomAttribute<AssemblyCopyrightAttribute>()?.Copyright ?? "Copyright © 2026 Automation Michael Xiang";
 
-                toolStripStatusLabel.Text = $"{company} | {copyright} | v{version}";
-            }
-            catch
-            {
-                toolStripStatusLabel.Text = "Align | Copyright © 2026 Automation Michael Xiang | v1.1.0";
-            }
+            //    toolStripStatusLabel.Text = $"{company} | {copyright} | v{version}";
+            //}
+            //catch
+            //{
+            //    toolStripStatusLabel.Text = "Align | Copyright © 2026 Automation Michael Xiang | v1.1.0";
+            //}
+            string company = "Align";
+            string copyright = "Copyright © 2026 Global Automation Michael ";
+            string version = "1.1.0";
+
+            toolStripStatusLabel.Text = $"{company} | {copyright} | v{version}";
         }
 
         private void InitializeLogFile()
@@ -904,6 +909,16 @@ namespace ImageSearchAndCopy
         private void toolStripStatusLabel_Click(object sender, EventArgs e)
         {
             // 空实现
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBoxLog_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
